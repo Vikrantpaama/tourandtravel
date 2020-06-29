@@ -1,0 +1,71 @@
+{% load static %}
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Air booking</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/book style.css' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<style>
+        body {background-image:url('static/images/logo background.jpg');
+        background_size:cover;
+        background_attachment:fixed;
+        height:100px;width:100%;
+        background-position:center;
+    </style>
+<div style="background:rgba(255,255,255,.5)width: 70%;height:auto;">
+
+</div> <br><br>
+<center><div class="m1" style="height:auto;background:rgba(255,255,255,.5);"><br>
+
+
+   <form action="paymentMode3" method="post">
+       {% csrf_token %}
+      <ul> <br>
+          <a href='javascript:history.go(-1)'  class="btn" style="margin-left:950px;color:black;">Go Back</a><br><br>
+          <img src="{% static 'images/reg.jpg' %}"height="150px"width="150px"/><br><br>
+          <h7 style="color:red;">*</h7> Enter Name :<input type="text"placeholder="Enter Name"name="name"required/>
+           <h7 style="color:red;">*</h7> E-mail :<input type="Email"placeholder="Enter E-mail"name="email"required/>
+           <h7 style="color:red;">*</h7> Phone :<input type="phone no"placeholder="Enter Phone no"name="phone" maxlength="10"required/><br><br>
+           <h7 style="color:red;">*</h7> Address : <input type="text"placeholder="1234 Main St"name="address"required/>
+           <h7 style="color:red;">*</h7> Address2 : <input type="text"placeholder="Apartment,studio, or floor"name="address2"required/>
+           <h7 style="color:red;">*</h7> City : <input type="text"placeholder="City"name="city"required/><br><br>
+           <h7 style="color:red;">*</h7> State : <input type="text"placeholder="State"name="state"required/><br><br>
+          Trip Type <select name="trip_type">
+                  <option>----select----</option>
+                  <option value="Round">Round Trip</option>
+                  <option value="One Way">One Way</option>
+                  </select><br><br>
+          From<input type="text" name="from1"placeholder="From: City or Airport Code"><br><br>
+          To<input type="text" name="to"placeholder="To: City or Airport Code"><br><br>
+          <i class="fa fa-calendar"></i>  Depart on: <input type="date" name="depart"class="from-control datetimepicker" placeholder="YYYY-MM-DD"><br><br>
+          <div class="container mt-3">
+              <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo"><i class="fa fa-user"></i> Members ,Economy</button><br><br>
+              <div id="demo" class="collapse">
+                  Adult: <input type="number"name="n5"placeholder="(+12 years)"/><br><br>
+                  Children: <input type="number"name="n6"placeholder="(2-11 years)"/><br><br>
+                  Infact: <input type="number"name="n7"placeholder="(below 2 years)"/><br><br>
+                  Choose Travel Class <select name="class1">
+                  <option>----select----</option>
+                  <option value="Economy">Economy</option>
+                  <option value="Premium Economy">Premium Economy</option>
+                  <option value="Bussiness">Bussiness</option>
+                  <option value="First">First</option>
+                  </select><br><br></div>
+
+
+
+
+          <center><input type="submit"></input></center><br><br>
+
+          </div></ul>
+   </form>
+</div></center></body>
+</html>

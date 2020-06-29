@@ -1,0 +1,74 @@
+{% load static %}
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm fixed-top navbar-dark" style="background-color:#000000;height:auto; ">
+  <a class="navbar-brand " style="color:white; ">
+
+      <i class="fa fa-plane" style=margin:8px;"></i>Tour & Travel
+  </a>
+
+  <li class="navbar-nav ml-auto">
+      <li class="nav-item">
+         <li class="active"><a href="dashboard"><i class="fa fa-home"></i> Home</a></li>
+         <li><a href="about"><i class="fa fa-user"></i> About Us</a></li>
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-th-large"></i> Packages <span class="caret"></span></a>
+            <ul class="dropdown-menu" style="width:auto;">
+              <li><a href="honeymoonpackage" style="color:blue;background-color:#000000;"> Family Packages</a></li>
+              <li><a href="holidaypackage" style="color:blue;background-color:#000000;"> Holidays Packages</a></li>
+            </ul>
+          </li>
+           <li><a href="hotel1"><i class="fa fa-bed"></i> Hotels</a></li>
+           <li class="nav-item"><a href="contact"><i class="fa fa-phone"></i> Contact</a></li>
+           <li class="active"><a href="myaccount"><i class="fa fa-address-card-o"></i> My Account</a></li>
+         {% if user.is_authenticated %}
+         <li class="nav-item"><a href="logout"><i class="fa fa-sign-out"></i> Sign out</a></li>
+         {% else %}
+             <div class="dropdown">
+                 <button class="w3-dropdown-hover" style=background-color:#000000;margin:10px;" type="button"data-toggle="dropdown"Dropdown>
+                     <a style="color:olive"href="#" style="color:blue;"><i class="fa fa-caret-down"></i> Login</a>
+                 </button>
+                 <ul class="dropdown-menu" style="background-color:#000000;">
+                     <li><a href="login" style="color:blue;"><i class="fa fa-sign-in"></i> Sign Up</a></li>
+                     <li><a href="registration" style="color:blue;"><i class="fa fa-registered "></i> New User</a></li>
+                 </ul>
+             </div>
+    {% endif %}
+
+  </li>
+
+</nav>
+<br><br>
+<style>
+    body {background-image:url('static/images/sand.jpg');
+    background_size:cover;
+    background_attachment:fixed;
+    height:100px;width:100%;
+    background-position:center;
+    }
+</style>
+<br><br>
+<div class="m1">
+<h1>TOUR & TRAVEL IS THE BEST TRAVEL SITE IN THE WORLD!</h1>
+<p1>Travelers🚀 welcome to my site. You’ve just stumbled across the best place on the internet to find information on travel-related websites and resources. Although the concept is pretty self-explanatory, I thought I would offer a little introduction page to let you know precisely what it is you will be looking at. The platform is a review and ranking area for traveler resources, from renting a car to finding a cool place to stay. Although you think you might have come across something similar in the past, I can guarantee that this site is different. Here’s why:</p1>
+<h2>Built For You💝</h2>
+<p1>Forget corporate-sponsored websites that are just after your money; this website has been sourced and put together by travelers for travelers. Every list was compiled with your best interests at heart, bringing you quality as well as value.</p1>
+<h3>Daily Updates🆕🔔</h3>
+<p1>We all know that as companies get bigger, they can start to care less about their quality of service and more about their profits. For that reason, I regularly reassess the websites featured on the lists to keep them up to date so that you will see only the ones offering the best content. If what was once a great travel resource has now been bought out by a more significant corporation that only has its interests at heart, I’ll be on it making amendments at the shortest possible notice.</p1>
+<h4>Email :</h4>
+<p>tourandtravel@gmail.com</p>
+    <center><img src="{% static 'images/thanku1.jpg' %}"height="200px"width="400px"/></center>
+</div>
+</body>
+</html>

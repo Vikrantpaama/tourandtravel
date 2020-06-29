@@ -1,0 +1,113 @@
+{% load static %}
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hotel booking</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/stylehotel.css' %}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+    body {background-image:url('static/images/hotel-5.jpg');
+    background-size:cover;
+    background-attachment:fixed;
+    background-position:center;
+    height:100%;
+    }
+</style><br><br><br>
+<nav class="navbar navbar-expand-sm fixed-top navbar-dark" style="background-color:#000000;height:auto;">
+  <a class="navbar-brand " style="color:white; ">
+
+      <i class="fa fa-plane" style=margin:8px;"></i>Tour & Travel
+  </a>
+
+  <li class="navbar-nav ml-auto">
+      <li class="nav-item">
+         <li class="active"><a href="dashboard"><i class="fa fa-home"></i> Home</a></li>
+         <li><a href="about"><i class="fa fa-user"></i> About Us</a></li>
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-th-large"></i> Packages <span class="caret"></span></a>
+            <ul class="dropdown-menu" style="width:auto;">
+              <li><a href="honeymoonpackage" style="color:blue;background-color:#000000;"> Family Packages</a></li>
+              <li><a href="holidaypackage" style="color:blue;background-color:#000000;"> Holidays Packages</a></li>
+            </ul>
+          </li>
+    <li><a href="hotel1"><i class="fa fa-bed"></i> Hotels</a></li>
+
+         <li class="nav-item"><a href="contact"><i class="fa fa-phone"></i> Contact</a></li>
+         <li class="active"><a href="myaccount"><i class="fa fa-address-card-o"></i> My Account</a></li>
+         {% if user.is_authenticated %}
+         <li class="nav-item"><a href="logout"><i class="fa fa-sign-out"></i> Sign out</a></li>
+         {% else %}
+             <div class="dropdown">
+                 <button class="w3-dropdown-hover" style=background-color:#000000;margin:10px;" type="button"data-toggle="dropdown"Dropdown>
+                     <a style="color:olive"href="#" style="color:blue;"><i class="fa fa-caret-down"></i> Login</a>
+                 </button>
+                 <ul class="dropdown-menu" style="background-color:#000000;">
+                     <li><a href="login" style="color:blue;"><i class="fa fa-sign-in"></i> Sign Up</a></li>
+                     <li><a href="registration" style="color:blue;"><i class="fa fa-registered "></i> New User</a></li>
+                 </ul>
+             </div>
+             {% endif %}
+
+  </li>
+
+</nav>
+<br><br>
+<center><h2 style="color:white;font-size:50px;">Hotels</h2></center>
+<center>{% if user.is_authenticated %}
+<h2 style="color:white;">Book Your Favorite Hotels</h2>
+{% else %}
+<center><h2 style="color:white;">Sorry, first Register /Sign Up yourself to book a Hotel</h2></center>
+    {% endif %}</center>
+<form>
+    <div class="container">
+        <div class="row">
+            {% for i in hotels %}
+            <div class="column">
+                <img src="{{i.image1.url}}"height="300px"width="300px">
+            <br>
+                <pre><b>{{i.hotelname}}</b>        <b>Address:{{i.address}}</b></pre><br>
+                <pre>Rs.{{i.amount}}/person         Ph:{{i.contact}}</h6></pre>
+                <pre>WiFi Facility:{{i.WiFifacility}}     {{i.star}}</pre>
+                <details><summary>Gallery</summary>
+                    <center>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="column">
+                                <img src="{{i.image2.url}}"height="300px"width="300px">
+                            </div><br><br>
+                            <div class="column">
+                                <img src="{{i.image3.url}}"height="300px"width="300px">
+                            </div><br><br>
+                            <div class="column">
+                                <img src="{{i.image4.url}}"height="300px"width="300px">
+                            </div><br><br>
+                        </div>
+                    </div>
+                    </center>
+                </details>
+                {% if user.is_authenticated %}
+                <a style="color:blue;" href="{% url 'paymentMode1' pk=i.pk %}">Book Now</a>
+                     {% else %}
+                   <a href="login">Book Now</a>
+                    {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</form>
+</body>
+<script>
+var idstr=this .id.toString();
+amount =document.grtElementById('amount'+idstr).innerHTML;
+[idstr]=[amount]
+</script>
+</html>
